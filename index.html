@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script> <!-- Font Awesome library -->
+
+    <script src="script2.js"></script>
+    <script src="script3.js"></script>
+    <script src="script4.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="script.js"></script>
+    <script src="script5.js"></script>
+
+</head>
+
+<body>
+    <div class="desktop-1 screen">
+        <div class="flex-col flex">
+            <h1 class="title"><img src="https://guidetechs.com/webimage/product/581652295_amity%20logo.png" width="150"
+                    height="150"></h1>
+            <div class="overlap-group">
+                <div class="rectangle-13"
+                    onclick="changePlaceholder(document.getElementById('codeTextarea'), 'python')">
+                    <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-1024.png"
+                        width="35px" height="35px">
+                </div>
+                <div class="rectangle-14"
+                    onclick="changePlaceholder(document.getElementById('codeTextarea'), 'javascript')">
+                    <img src="https://th.bing.com/th/id/OIP.vF8_h2mXqrGRynymmcJ4zgHaHJ?pid=ImgDet&rs=1" width="35px"
+                        height="35px">
+                </div>
+                <div class="rectangle-1" onclick="changePlaceholder(document.getElementById('codeTextarea'), 'java')">
+                    <img src="https://urashita.com/wp-content/uploads/2016/06/java_logo.png" width="35px" height="35px">
+                </div>
+                <div class="rectangle-1"
+                    onclick="changePlaceholder(document.getElementById('codeTextarea'), 'cuttlefish')">
+                    <img src="https://ih0.redbubble.net/image.416406976.0438/ap,550x550,12x12,1,transparent,t.png"
+                        width="35px" height="35px">
+                </div>
+                <div class="rectangle-1" onclick="changePlaceholder(document.getElementById('codeTextarea'), 'c')">
+                    <img src="https://wallpapercave.com/wp/wp4521293.png" width="35px" height="35px">
+                </div>
+            </div>
+        </div>
+        <div class="flex-col-1">
+            <div class="flex-row flex">
+                <div class="rectangle-1-1"> <i class="fas fa-sign-in-alt" title="Login "></i></div>
+                <div class="rectangle-1-1"> <button onclick="toggleDarkMode()"><i class="fas fa-moon"
+                            title="Switch Theme"></i></button></div>
+            </div>
+
+            <div class="flex-row-1">
+                <div class="rectangle" onclick="copyCode()"><i class="fas fa-copy" title="Copy"></i></div>
+                <div class="rectangle" onclick="saveCode()"><i class="fas fa-save" title="Save"></i></div>
+                <div class="rectangle" onclick="shareCode()"><i class="fas fa-share" title="Share"></i></div>
+                <div class="rectangle" onclick="clearCode()"><i class="fas fa-eraser" title="Clear All"></i></div>
+            </div>
+            <div class="textarea-container">
+                <div class="line-numbers"></div>
+                <textarea class="textbox rectangle-2" id="codeTextarea"
+                    placeholder="Enter your code here..."></textarea>
+            </div>
+
+            <div class="flex-row-2">
+                <div class="rectangle-4" onclick="runCode()"><i class="fas fa-play" title="Run code"></i></div>
+                <div class="rectangle-5" onclick="uploadFile()"><i class="fas fa-folder-open" title="Upload file from Folder"></i></div>
+                <textarea class="textbox rectangle-6" id="myTextarea" onfocus="clearTextarea(this)"
+                    onblur="restoreTextarea(this)"></textarea>
+            </div>
+            <textarea class="textbox rectangle-3" id="outputTextarea"></textarea> <!-- Added ID for output textarea -->
+        </div>
+    </div>
+</body>
+
+</html>
