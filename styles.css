@@ -14,7 +14,7 @@ body {
 .screen {
     max-width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 2px;
 }
 
 .desktop-1 {
@@ -30,10 +30,7 @@ body {
 }
 
 /* Dark theme styles */
-.dark-theme {
-    background-color: #1f1f1f;
-    color: #ffffff;
-}
+
 
 .dark-mode .desktop-1 {
     background-color: #000000;
@@ -44,13 +41,13 @@ body {
 
 .desktop-1 {
     align-items: flex-start;
-    background-color: #D1FFF3;
+    background-color: #34c6ba;
     border: none;
     display: flex;
     gap: 16px;
-    height: 75%;
+    
     padding: 17px 26px;
-    width: 100%;
+    
 }
 
 .hidden,
@@ -62,10 +59,11 @@ body {
 .flex-col {
     flex-direction: column;
     gap: 148px;
-    margin-left: 11px;
+    margin-left: 5%;
     margin-top: 16px;
-    min-height: 849px;
+    min-height: 800px;
     width: 236px;
+    
 }
 
 .desktop-1 .flex {
@@ -140,18 +138,13 @@ body {
     font-weight: 400;
     letter-spacing: 0;
     line-height: normal;
-    margin-left: 3px;
+    margin-left: 3%;
     height: 10px;
     width: 10px;
     text-align: justify;
 }
 
-@media (min-width: 768px) {
-    .title {
-        height: 1px;
-        width: 1px;
-    }
-}
+
 
 .flex-col-1 {
     align-items: flex-start;
@@ -164,9 +157,9 @@ body {
 .rectangle-3 {
     background-color: var(--white);
     border-radius: 25px;
-    height: 150px;
+    height: 450px;
     margin-top: 18px;
-    width: 99%;
+    width: 350px;
 }
 
 .flex-row {
@@ -232,6 +225,7 @@ body {
     background-color: var(--white);
     border-radius: 12px;
     height: 43px;
+    margin-top: 5%;
     width: 81px;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
@@ -241,33 +235,6 @@ body {
 
 }
 
-/* Responsive Styles */
-@media (max-width: 767px) {
-
-    /* Styles for screens smaller than 768px wide */
-    .rectangle {
-        height: 30px;
-        width: 60px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-
-    /* Styles for screens between 768px and 1023px wide */
-    .rectangle {
-        height: 35px;
-        width: 70px;
-    }
-}
-
-@media (min-width: 1024px) {
-
-    /* Styles for screens wider than 1023px */
-    .rectangle {
-        height: 43px;
-        width: 81px;
-    }
-}
 
 .flex-row-2 {
 
@@ -288,7 +255,7 @@ body {
     border-radius: 12px;
     height: 32px;
     margin-left: 18px;
-    width: 808px;
+    width:700px;
 
 }
 
@@ -321,20 +288,28 @@ body {
 .rectangle-2 {
     background-color: var(--white);
     border-radius: 12px;
-    height: 250px;
+    height: 450px;
+    color:#000000;
     margin-top: 18px;
-    width: 1106px;
+    width: 650px;
+    margin-right: 20px;
     flex: 1;
 
 }
+.dark-mode .rectangle-2{
+    background-color:black;
+    color:lime;
+
+}
+.dark-mode .rectangle-3{
+    background-color:black;
+    color:lime;
+
+}
+
 
 /* Media query for screens with a maximum width of 768px */
-@media (max-width: 768px) {
-    .rectangle-2 {
-        height: 200px;
-        width: 100%;
-    }
-}
+
 
 .rectangle-1-1 button {
     width: 40px;
@@ -342,12 +317,6 @@ body {
     height: 40px;
 }
 
-/* Media query for screens with a maximum width of 576px */
-@media (max-width: 576px) {
-    .rectangle-2 {
-        height: 150px;
-    }
-}
 
 .rectangle-13:hover {
     box-shadow: 0 0 10px 10px rgb(0, 0, 0);
@@ -413,11 +382,211 @@ body {
     gap: 16px;
 }
 
-.textbox-container {
-    position: relative;
-}
+a {
+    color: white;
+  }
 
+ 
 .textarea-container {
     position: relative;
+    
+    
     display: flex;
+  flex-wrap: wrap;
 }
+
+
+
+
+
+
+
+/* Media query for below 768px */
+@media (max-width: 767px) {
+
+    .rectangle-2 {
+        background-color: var(--white);
+        border-radius: 12px;
+        height: 250px;
+        margin-top: 18px;
+        width: 400px;
+        margin-right: 20px;
+        flex: 1;
+    }
+    .flex-col {
+        flex-direction: column;
+        gap: 148px;
+        margin-left:2%;
+        margin-top: 16px;
+        height: 300px;
+        width: 236px;
+        
+    }
+    .textarea-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 18px;
+        margin-left: 40%px;
+        position: relative;
+        height: 550px;
+    
+   
+  
+      }
+    
+    .rectangle-3 {
+        background-color: var(--white);
+        border-radius: 25px;
+        height: 150px;
+        margin-top: 18px;
+        width: 400px;
+    }
+    
+.rectangle-6 {
+
+    border-radius: 12px;
+    height: 32px;
+    margin-left: 10px;
+    width:150px;
+    height: 75px;
+
+}
+
+.flex-row-2 {
+
+    align-self: center;
+    display: flex;
+    
+    margin-top: 10px;
+    min-width: 60px;
+    margin-left : 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+
+}
+
+.flex-row-1 {
+    align-items: center;
+    
+    display: flex;
+    gap: 5px;
+    margin-right: 5px;
+    
+    min-width: 05px;
+
+}
+    
+.rectangle-4 {
+    background-color: var(--white);
+    border-radius: 12px;
+    height: 43px;
+    width: 81px;
+    margin-left: 3%;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+  }
+  
+  /* Media query for 768px to 1028px */
+  @media (min-width: 768px) and (max-width: 1028px){
+
+    .rectangle-2 {
+        background-color: var(--white);
+        border-radius: 12px;
+        height: 500px;
+        margin-top: 18px;
+        width: 400px;
+        margin-right: 20px;
+        flex: 1;
+    }
+    .textboxes-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-col {
+        flex-direction: column;
+        gap: 148px;
+        margin-left: 11px;
+        margin-top: 16px;
+        height: 300px;
+        width: 236px;
+        
+    }
+    .rectangle-3 {
+        background-color: var(--white);
+        border-radius: 25px;
+        height: 500px;
+        margin-top: 18px;
+        width: 250px;
+    }
+    
+
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-links img {
+  width: 30px;
+  height: 30px;
+}
+
+.rectangle-6 {
+
+    border-radius: 12px;
+    height: 32px;
+    margin-left: 18px;
+    width:400px;
+    height: 75px;
+
+}
+
+
+.flex-row-2 {
+
+    align-self: center;
+    display: flex;
+    
+    margin-top: 18px;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+}
+.flex-row-1 {
+    align-items: center;
+    
+    display: flex;
+    gap: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    min-width: 405px;
+
+}
+}
+
+ 
+  
+
+
+
+.growwrap img { 
+    transition: all 2s ease-in-out;
+    transform-origin: center; 
+    -webkit-  transform-origin: center; padding-top:50px;}
+  
+  .growwrap img:hover { 
+    transform: scale(1.2); 
+    transform-origin: center; 
+    -webkit-transform:scale(1.2); -webkit-transform-origin: center;}
