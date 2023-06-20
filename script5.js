@@ -6,8 +6,48 @@ function copyCode() {
 
 function saveCode() {
     var code = document.getElementById('codeTextarea').value;
-    // Implement code saving logic here
-    console.log('Code saved:', code);
+  
+  // Check if code is empty
+  if (code.trim() === '') {
+    alert('Please enter some code before saving.');
+    return;
+  }
+  
+  // Get the current HTML file name
+  var currentFileName = window.location.pathname.split('/').pop();
+  
+  // Determine the file extension based on the current HTML file name
+  var fileExtension = '';
+  
+  if (currentFileName === 'index.html') {
+    fileExtension = '.py';
+  } else if (currentFileName === 'java.html') {
+    fileExtension = '.java';
+  } else if (currentFileName === 'c++.html') {
+    fileExtension = '.cpp';
+  } else if (currentFileName === 'c.html') {
+    fileExtension = '.c';
+  } else {
+    fileExtension = '.txt'; // Default to a plain text file
+  }
+  
+  // Create a new Blob object with the code content
+  var blob = new Blob([code], { type: 'text/plain' });
+  
+  // Generate a unique file name using current timestamp
+  var fileName = 'saved-code_' + Date.now() + fileExtension;
+  
+  // Create a download link element
+  var link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = fileName;
+  
+  // Append the link to the document body and trigger the download
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  
+  console.log('Code saved');
 }
 
 function shareCode() {

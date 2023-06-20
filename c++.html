@@ -23,10 +23,12 @@
 
     <script src="script.js"></script>
     <script src="script5.js"></script>
-    <script src="c++.js"></script>
+    <script src="python.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/themes/prism.css" />
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.js"></script>
     <script>Prism.highlightAll();</script>
+    
+   
 
 
 </head>
@@ -35,39 +37,38 @@
     <div class="desktop-1 screen">
         <div class="flex-col flex">
             
-            <h1 class="title" id="growwrap"><img src="https://guidetechs.com/webimage/product/581652295_amity%20logo.png" width="100"
-                    height="100"></h1>
+            <h1 class="title"><img src="logo.png" ></h1>
 
             <div class="overlap-group">
                 <a href="index.html">
                     <div class="rectangle-13"
                     onclick="changePlaceholder(document.getElementById('codeTextarea'), 'python')" data-bss-hover-animate="bounce" >
                     <img src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-1024.png"
-                        width="35px" height="35px">
+                        width="50px" height="50px">
                 </a>
             </div>                
                 <div class="rectangle-14"
                     onclick="changePlaceholder(document.getElementById('codeTextarea'), 'javascript')" data-bss-hover-animate="bounce">
-                    <img src="https://th.bing.com/th/id/OIP.vF8_h2mXqrGRynymmcJ4zgHaHJ?pid=ImgDet&rs=1" width="35px"
-                        height="35px">
+                    <img src="javas.png" width="75px"
+                        height="40px">
                 </div>
                 <a href="java.html">
                    <div class="rectangle-1" onclick="changePlaceholder(document.getElementById('codeTextarea'), 'java')"data-bss-hover-animate="bounce">
-                    <img src="https://urashita.com/wp-content/uploads/2016/06/java_logo.png" width="35px" height="35px">
+                    <img src="https://urashita.com/wp-content/uploads/2016/06/java_logo.png" width="50px" height="50px">
                 </a>
                 </div>
 
                 <a href="c++.html">
                     <div class="rectangle-1"
                     onclick="changePlaceholder(document.getElementById('codeTextarea'), 'cuttlefish')"data-bss-hover-animate="bounce">
-                    <img src="https://ih0.redbubble.net/image.416406976.0438/ap,550x550,12x12,1,transparent,t.png"
-                        width="35px" height="35px">
+                    <img src="cpp.png"
+                        width="50px" height="50px">
                 </a>
                 </div>
 
                 <a href="c.html">
                     <div class="rectangle-1" onclick="changePlaceholder(document.getElementById('codeTextarea'), 'c')"data-bss-hover-animate="bounce">
-                    <img src="https://wallpapercave.com/wp/wp4521293.png" width="35px" height="35px">
+                    <img src="https://wallpapercave.com/wp/wp4521293.png" width="50px" height="50px">
 
                 </a>
                 </div>
@@ -75,8 +76,8 @@
         </div>
         <div class="flex-col-1">
             <div class="flex-row flex">
-                <div class="rectangle-1-1"> <i class="fas fa-sign-in-alt" title="Login "></i></div>
-                <div class="rectangle-1-1"> <button onclick="toggleDarkMode()"><i class="fas fa-moon"
+                <div class="rectangle-1-1">  <button onclick="window.location.href = 'login.html';" style="background-color: rgba(255, 255, 255, 0.092);"><i class="fas fa-sign-in-alt" title="Login "></i></button></div>
+                <div class="rectangle-1-1"> <button onclick="toggleDarkMode()" style="background-color: rgba(255, 255, 255, 0.092);"><i class="fas fa-moon"
                             title="Switch Theme"></i></button></div>
             </div>
 
@@ -89,14 +90,15 @@
             <div class="textarea-container">
                 
                 <textarea class="textbox rectangle-2" id="codeTextarea"
-                    placeholder="Enter your code here..."></textarea><textarea class="textbox rectangle-3" id="outputTextarea"></textarea> <!-- Added ID for output textarea -->
+                    placeholder="C++ program to show hello world"></textarea><textarea class="textbox rectangle-3" id="outputTextarea"></textarea> <!-- Added ID for output textarea -->
             </div>
 
             <div class="flex-row-2">
                 <div class="rectangle-4" onclick="runCode()"><i class="fas fa-play" title="Run code"></i></div>
+                
                 <div class="rectangle-5" onclick="uploadFile()"><i class="fas fa-folder-open" title="Upload file from Folder"></i></div>
                 <textarea class="textbox rectangle-6" id="myTextarea" onfocus="clearTextarea(this)"
-                    onblur="restoreTextarea(this)"></textarea>
+                    onblur="restoreTextarea(this)" placeholder="Got any command line arguments ? Type here" ></textarea>
             </div>
             
         </div>
