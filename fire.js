@@ -1,18 +1,3 @@
-
-// Create a script element for SweetAlert library
-var sweetAlertScript = document.createElement('script');
-sweetAlertScript.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js';
-document.head.appendChild(sweetAlertScript);
-
-// Create a link element for SweetAlert CSS file
-var sweetAlertStylesheet = document.createElement('link');
-sweetAlertStylesheet.rel = 'stylesheet';
-sweetAlertStylesheet.href = 'https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css';
-document.head.appendChild(sweetAlertStylesheet);
-
-// Rest of your code in fire.js
-// ...
-
 // Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyD29HcmBr1uCZCswiIUoJuo9XVJ3lVRxFs",
@@ -66,17 +51,8 @@ loginForm.addEventListener("submit", function(event) {
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(function(user) {
             // Login successful, redirect to index.html
-            Swal.fire({
-                icon: 'success',
-                title: 'Logged in Successfully',
-                text: 'Press "OK" to continue.',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "index.html";
-                }
-            });
+            alert("Login successful")
+            window.location.href = "index.html";
         })
         .catch(function(error) {
             // Handle errors here
@@ -97,17 +73,8 @@ signupForm.addEventListener("submit", function(event) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(function(user) {
             // Signup successful, redirect to index.html
-            Swal.fire({
-                icon: 'success',
-                title: 'Signed Up Successfully',
-                text: 'Press "OK" to continue.',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "index.html";
-                }
-            });
+            alert("SignUp succesful !")
+            window.location.href = "index.html";
         })
         .catch(function(error) {
             // Handle errors here
@@ -117,31 +84,11 @@ signupForm.addEventListener("submit", function(event) {
         });
 });
 
+// Check if user is logged in
 firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-
-    Swal.fire({
-      icon: 'error',
-      title: 'User is already logged in',
-      text: 'Press "OK" to continue.',
-      confirmButtonColor: '#3085d6',
-      confirmButtonText: 'OK',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        
-          window.location.href = "index.html";
-      }});
-    // User is logged in
-    // You can perform actions for logged-in users here
-    console.log("User is logged in");
-    // Redirect the user to index.html or perform other actions
-    
-  } else {
-    // User is logged out
-    // You can perform actions for logged-out users here
-    console.log("User is logged out");
-    // Display the login form or perform other actions
-    loginForm.style.display = "block";
-    signupForm.style.display = "none";
-  }
+    if (user) {
+        // User is signed in, allow access to index.html
+        alert("Already signed in !")
+        window.location.href = "index.html";
+    }
 });
