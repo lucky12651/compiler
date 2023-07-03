@@ -26,7 +26,7 @@ The editor uses the following external libraries and APIs:
 
 ## Usage
 
-1. Clone the repository: `git clone https://github.com/yourusername/8BIT-Online-Code-Editor.git`
+1. Clone the repository: `git clone https://github.com/lucky12651/compiler`
 2. Open the `index.html` file in your browser to access the online code editor.
 3. Write or paste your code in the editor area.
 4. Use the buttons in the UI to perform various actions such as copying code, saving code, executing code, and more.
@@ -61,6 +61,7 @@ To integrate Rapid API into your project, follow these steps:
 3. Clone the repository:
 
    ```bash
+   git clone https://github.com/lucky12651/compiler
 
 
 ## Credits
