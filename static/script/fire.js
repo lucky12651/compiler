@@ -74,7 +74,7 @@ loginForm.addEventListener("submit", function(event) {
   confirmButtonText: 'OK',
 }).then((result) => {
   if (result.isConfirmed) {
-    window.location.href = "index.html";
+    window.close();;
   }
 });
         })
@@ -105,7 +105,7 @@ signupForm.addEventListener("submit", function(event) {
   confirmButtonText: 'OK',
 }).then((result) => {
   if (result.isConfirmed) {
-    window.location.href = "index.html";
+    window.close();;
   }
 });
         })
