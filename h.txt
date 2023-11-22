@@ -1,0 +1,15 @@
+@app.route('/c')
+def c():
+    return render_template('c.html')
+
+@app.route('/cpp')
+def cpp():
+    return render_template('cpp.html')
+
+@app.route('/java')
+def java():
+    return render_template('java.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')

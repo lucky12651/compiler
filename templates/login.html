@@ -719,14 +719,17 @@ body.off::after {
         </div>
         
             <div class="row"></div>
-            <input type="submit" value="[LOGIN]" id="login" class="active">
+            <input type="submit" value="[LOGIN]" id="login" class="active">  
+
+
+        
             
-            <button id="guest" onclick="window.close()">[Guest]</button>
+ 
             
             <div id="errorMsg"></div>
        
             <p id="capsLockMessage" style="color: red; display: none;">Caps Lock is ON <i class="fas fa-exclamation-triangle warning-icon" ></i></p>
-            <p id="signupParagraph">Not a user? <a href="signup.html" id="signupLink">Signup</a></p>
+            <p id="signupParagraph">Not a user? <a href= "{{ url_for('signup') }}"  id="signupLink">Signup</a></p>
           </div><br>
 
         </div>
@@ -738,12 +741,12 @@ body.off::after {
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
-<script src="statics/firebase-config.js"></script>
+<script src="static/firebase-config.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-<script src="statics/script/firebase.js"></script>
+<script src="static/script/firebase.js"></script>
 <script>
   document.addEventListener("keydown", function(event) {
     var capsLockMessage = document.getElementById("capsLockMessage");
@@ -754,6 +757,12 @@ body.off::after {
     }
   });
 </script>
+<a href="{{ url_for('index') }}">
+  <button id="guest">[Guest]</button>
+</a>
+<a href="{{ url_for('admin') }}">
+  <button id="guest">[Admin]</button>
+</a>
 
 </body>
 </html>

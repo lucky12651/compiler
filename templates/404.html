@@ -402,9 +402,25 @@ body {
             <h1 t="404"></h1>
             <div class="bottom">
                 <p>You have lost your way</p>
-                <a onclick="window.location.href='index.html'">return home</a>
+                <a id="return-home-link" href="{{ url_for('index') }}">Return Home</a>
+
             </div>
         </div>
-    </section>
+    </section> 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+  const returnHomeLink = document.getElementById("return-home-link");
+
+  returnHomeLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    const pathToClear = window.location.pathname;
+    
+    // Add your logic to clear the wrong path here (if needed).
+
+    // Redirect to the correct path (index route in this case).
+    window.location.href = "{{ url_for('index') }}";
+  });
+});
+    </script>
 </body>
 </html>

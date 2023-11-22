@@ -1,7 +1,14 @@
 from flask import Flask, render_template, request, jsonify
 import subprocess
+from flask_socketio import SocketIO, join_room, leave_room, emit, os
+
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.urandom(5)
+socketio = SocketIO(app)
+
+# A set to store active users
+active_users = set()
 
 @app.route('/')
 def index():
@@ -183,6 +190,38 @@ def compile_and_execute_java(code, input_data):
 @app.route('/login')
 def login():
     return render_template('login.html')
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')
+
+
+@socketio.on('connect')
+def on_connect():
+    # Add the current user's ID to the active_users set
+    active_users.add(request.sid)
+    emit('update_users', list(active_users), broadcast=True)
+
+@socketio.on('disconnect')
+def on_disconnect():
+    # Remove the current user's ID from the active_users set
+    active_users.discard(request.sid)
+    emit('update_users', list(active_users), broadcast=True)
+
+
+
+
+
+
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+@app.route('/restricted')
+def restricted():
+    return render_template('restricted.html')
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
 
 # Add more routes and view functions for other HTML pages as needed
 

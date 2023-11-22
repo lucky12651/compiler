@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
+    <title>Admin Page - 8BIT</title>
    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -231,6 +231,32 @@ body.swal2-shown > *:not(.swal2-container) {
     window.onload = function() {
       showPasswordPrompt();
     };
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+  <script type="text/javascript">
+      var socket = io.connect('http://' + document.domain + ':' + location.port);
+  
+      // Function to update the online user list
+      function updateUserList(users) {
+          var userListElement = document.querySelector('.user h2');
+          userListElement.textContent = 'Online Users:';
+  
+          var userList = document.createElement('ul');
+          users.forEach(function(user) {
+              var listItem = document.createElement('li');
+              listItem.textContent = user;
+              userList.appendChild(listItem);
+          });
+  
+          userListElement.appendChild(userList);
+      }
+  
+      // Event handler for receiving updated user list from the server
+      socket.on('update_users', function(users) {
+          updateUserList(users);
+      });
   </script>
 
 </body>

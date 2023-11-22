@@ -83,7 +83,7 @@ Welcome to 8Bit Online Compiler, a simple and user-friendly web-based compiler t
 
 ## Demo
 
-Check out the live demo of the 8Bit Online Compiler [here](https://compiler81.netlify.app).
+Check out the live demo of the 8Bit Online Compiler [here](https://myuniqueflaskapp.azurewebsites.net/).
 
 ## Future Enhancements
 

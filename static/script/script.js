@@ -86,8 +86,8 @@ console.log("hi from 8bit")
   
   demo.onclick = () => {
     setState('sending')
-    setTimeout(() => setState('done'), 3000)
-    setTimeout(() => setState('idle'), 5000)
+    setTimeout(() => setState('done'), 1000)
+    setTimeout(() => setState('idle'), 1500)
   }
   
   function setState(state) {
