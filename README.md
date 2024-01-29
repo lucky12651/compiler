@@ -83,7 +83,7 @@ Welcome to 8Bit Online Compiler, a simple and user-friendly web-based compiler t
 
 ## Demo
 
-Check out the live demo of the 8Bit Online Compiler [here](https://myuniqueflaskapp.azurewebsites.net/).
+Check out the live demo of the 8Bit Online Compiler [here](http://207.246.112.202:8080).
 
 ## Future Enhancements
 
