@@ -65,7 +65,7 @@ function hideMessageBox() {
         
           // Open the redirected page in a new window with the specified size after 1.5 seconds
           setTimeout(function() {
-            window.open('https://8bit81.blogspot.com/', '', 'width=700,height=800');
+            window.open('https://eightbitblog.tech/', '', 'width=700,height=800');
             console.log("Blog Page opened");
           }, 1500);
         }
