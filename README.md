@@ -7,6 +7,12 @@
 
 Welcome to 8Bit Online Compiler, a simple and user-friendly web-based compiler that allows you to write and execute code in various programming languages right in your browser. Embrace the nostalgia of 8-bit graphics while coding with ease and convenience.
 
+## Screenshots
+![Screenshot of HomePage](https://firebasestorage.googleapis.com/v0/b/myblog-8800d.appspot.com/o/manifest%2FgithubPinned%2Fcompiler.jpeg?alt=media&token=cb347532-004f-4d55-acd8-7451987be3ff)
+Home Page 
+
+![Screenshot of Login Page](https://firebasestorage.googleapis.com/v0/b/myblog-8800d.appspot.com/o/manifest%2FgithubPinned%2Fcompilerlogin.jpeg?alt=media&token=31b393b5-f8a3-49ef-943a-cdd0cb82610a)
+Login/SignUp Page
 ## Features
 
 - **Language Support**: Write code in popular programming languages, including C, C++, Python and Java.
