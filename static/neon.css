@@ -1,0 +1,1135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #0f0f1d;
+    padding: 2rem;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+}
+
+.logo {
+    font-size: 1.7rem;
+    margin-left: 2rem;
+    font-family: monospace;
+    font-weight: bolder;
+    color: white;
+    padding: 3px;
+    /* background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; */
+}
+
+.top-btn {
+    /* width: 30rem; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin-right: 5rem;
+}
+
+.orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    mix-blend-mode: screen;
+}
+
+/* Left side orbs */
+.left-orbs {
+    z-index: -1;
+    position: fixed;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    animation: rotateLeft 20s linear infinite;
+}
+
+.orb1 {
+    width: 450px;
+    height: 450px;
+    background: rgb(27 0 193 / 40%);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.orb2 {
+    width: 400px;
+    height: 400px;
+    background: rgb(7 193 34 / 40%);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* Right side orbs */
+.right-orbs {
+    z-index: -1;
+    position: fixed;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    animation: rotateRight 20s linear infinite;
+}
+
+.orb3 {
+    width: 450px;
+    height: 450px;
+    background: rgb(255 0 79 / 40%);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.orb4 {
+    width: 400px;
+    height: 400px;
+    background: rgb(60 4 70 / 62%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes rotateLeft {
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+@keyframes rotateRight {
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(-360deg);
+    }
+}
+
+/* Rest of your existing styles */
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.product-hunt {
+    background: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2rem;
+}
+
+.ph-logo {
+    width: 20px;
+    height: 20px;
+    background: #ff6154;
+    border-radius: 50%;
+}
+
+.upvotes {
+    color: #ff6154;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+p {
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #ff69b4, #7b68ee);
+    color: white;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ----------------------------------------------- */
+.main {
+    position: fixed;
+    top: 30px;
+    /* background-color: black; */
+    width: 95vw;
+    height: auto;
+}
+
+.main-top-axis {
+    margin-bottom: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background: rgba(255, 255, 255, 0.19);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.2px);
+    -webkit-backdrop-filter: blur(5.2px);
+    border: 1px solid rgb(100 90 90 / 83%);
+}
+
+/* From Uiverse.io */
+.button {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+    padding: 7px 20px;
+    border-radius: 10px;
+    font-size: 1.15em;
+    cursor: pointer;
+}
+
+.button span {
+    position: relative;
+    z-index: 1;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: #272727;
+    border-radius: 9px;
+    transition: 0.5s;
+}
+
+.button:hover::before {
+    opacity: 0.7;
+}
+
+.button::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+    border-radius: 9px;
+    transition: 0.5s;
+    opacity: 0;
+    filter: blur(20px);
+}
+
+.button:hover:after {
+    opacity: 1;
+}
+
+/* ------------------Switch------------------------ */
+/* switch settings 👇 */
+/* 
+.ui-switch {
+
+    --switch-bg: rgb(135, 150, 165);
+    --switch-width: 48px;
+    --switch-height: 20px;
+    
+    --circle-diameter: 32px;
+    --circle-bg: rgb(0, 0, 0);
+    --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
+}
+
+.ui-switch input {
+    display: none;
+} */
+
+/* .slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: var(--switch-width);
+    height: var(--switch-height);
+    background: var(--switch-bg);
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+} */
+
+/* .slider .circle {
+    top: calc(var(--circle-inset) * -1);
+    left: 0;
+    width: var(--circle-diameter);
+    height: var(--circle-diameter);
+    position: absolute;
+    background: var(--circle-bg);
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTkuMzA1IDEuNjY3VjMuNzVoMS4zODlWMS42NjdoLTEuMzl6bS00LjcwNyAxLjk1bC0uOTgyLjk4Mkw1LjA5IDYuMDcybC45ODItLjk4Mi0xLjQ3My0xLjQ3M3ptMTAuODAyIDBMMTMuOTI3IDUuMDlsLjk4Mi45ODIgMS40NzMtMS40NzMtLjk4Mi0uOTgyek0xMCA1LjEzOWE0Ljg3MiA0Ljg3MiAwIDAwLTQuODYyIDQuODZBNC44NzIgNC44NzIgMCAwMDEwIDE0Ljg2MiA0Ljg3MiA0Ljg3MiAwIDAwMTQuODYgMTAgNC44NzIgNC44NzIgMCAwMDEwIDUuMTM5em0wIDEuMzg5QTMuNDYyIDMuNDYyIDAgMDExMy40NzEgMTBhMy40NjIgMy40NjIgMCAwMS0zLjQ3MyAzLjQ3MkEzLjQ2MiAzLjQ2MiAwIDAxNi41MjcgMTAgMy40NjIgMy40NjIgMCAwMTEwIDYuNTI4ek0xLjY2NSA5LjMwNXYxLjM5aDIuMDgzdi0xLjM5SDEuNjY2em0xNC41ODMgMHYxLjM5aDIuMDg0di0xLjM5aC0yLjA4NHpNNS4wOSAxMy45MjhMMy42MTYgMTUuNGwuOTgyLjk4MiAxLjQ3My0xLjQ3My0uOTgyLS45ODJ6bTkuODIgMGwtLjk4Mi45ODIgMS40NzMgMS40NzMuOTgyLS45ODItMS40NzMtMS40NzN6TTkuMzA1IDE2LjI1djIuMDgzaDEuMzg5VjE2LjI1aC0xLjM5eiIgLz4KPC9zdmc+");
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -o-transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    ;
+} */
+
+/* .slider .circle::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: inherit;
+    -webkit-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    opacity: 0;
+} */
+
+/* actions */
+
+/* .ui-switch input:checked+.slider .circle {
+    left: calc(100% - var(--circle-diameter));
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjAiIHdpZHRoPSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiCiAgICAgICAgZD0iTTQuMiAyLjVsLS43IDEuOC0xLjguNyAxLjguNy43IDEuOC42LTEuOEw2LjcgNWwtMS45LS43LS42LTEuOHptMTUgOC4zYTYuNyA2LjcgMCAxMS02LjYtNi42IDUuOCA1LjggMCAwMDYuNiA2LjZ6IiAvPgo8L3N2Zz4=");
+} */
+
+/* .ui-switch input:active+.slider .circle::before {
+    -webkit-transition: 0s;
+    -o-transition: 0s;
+    transition: 0s;
+    opacity: 1;
+    width: 0;
+    height: 0;
+} */
+
+/* -----------------------------Delete---------------------------- */
+.bin-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgb(255, 95, 95);
+    cursor: pointer;
+    border: 2px solid rgb(255, 201, 201);
+    transition-duration: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.bin-bottom {
+    width: 15px;
+    z-index: 2;
+}
+
+.bin-top {
+    width: 17px;
+    transform-origin: right;
+    transition-duration: 0.3s;
+    z-index: 2;
+}
+
+.bin-button:hover .bin-top {
+    transform: rotate(45deg);
+}
+
+.bin-button:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.bin-button:active {
+    transform: scale(0.9);
+}
+
+.garbage {
+    position: absolute;
+    width: 14px;
+    height: auto;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.bin-button:hover .garbage {
+    animation: throw 0.4s linear;
+}
+
+@keyframes throw {
+    from {
+        transform: translate(-400%, -700%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0%, 0%);
+        opacity: 1;
+    }
+}
+
+/* ---------------------------------Mian-content----------------------------- */
+.main-content {
+    display: flex;
+    height: 37rem;
+    width: 100%;
+}
+
+.first {
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 35rem;
+    padding: 0.4rem;
+    font-size: 2.8rem;
+    /* background: rgba(255, 255, 255, 0.19); */
+    background-color: #1e1e1e;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(180, 180, 180, 0.1);
+    backdrop-filter: blur(5.2px);
+    -webkit-backdrop-filter: blur(5.2px);
+    /* border-left: 1px solid rgba(255, 255, 255, 0.83); */
+    /* color: white; */
+    background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: whitesmoke;
+}
+
+
+
+.scnd {
+    margin-right: 0.7rem;
+    /* background-color: rgb(17 16 16);
+    width: 50%;
+    height: auto; */
+    display: flex;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    height: auto;
+    width: 50%;
+    /* background-color: red; */
+    border: 1px solid white;
+    padding: 0.2rem;
+    /* background: rgba(255, 255, 255, 0.19); */
+    background: linear-gradient(90deg, #41E6D0, #7F54C9, #F34BA3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.2px);
+    -webkit-backdrop-filter: blur(5.2px);
+    border: 1px solid rgb(100 90 90 / 83%);
+}
+
+.input {
+    height: 100%;
+    width: auto;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.input-head {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 7px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    /* border-bottom-left-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.2px);
+    -webkit-backdrop-filter: blur(5.2px);
+    border: 1px solid rgba(43, 43, 43, 0.83);
+    /* color: white; */
+    /* background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent; */
+    background-color: rgb(32, 32, 32);
+}
+
+.thrd {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background-color: rgb(32 30 30);
+    width: 50%;
+    height: auto;
+    border: 1px solid white;
+    padding: 0.2rem;
+    /* background: rgba(255, 255, 255, 0.19); */
+    background: linear-gradient(90deg, #41E6D0, #7F54C9, #F34BA3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.2px);
+    -webkit-backdrop-filter: blur(5.2px);
+    border: 1px solid rgb(100 90 90 / 83%);
+}
+
+.cpy {
+    color: #c0bcbc;
+    font-size: 1.4rem;
+}
+
+.file {
+    color: #c0bcbc;
+    font-size: 1.4rem;
+}
+
+.save {
+    color: #c0bcbc;
+    font-size: 1.4rem;
+}
+
+/* ---------------------Card------------------------- */
+.card {
+    border-top: 1px solid grey;
+    padding-top: 7px;
+    background-color: #1e1e1e;
+    /* border-radius: 8px; */
+    width: 100%;
+    height: 100%;
+    /* padding: 20px; */
+    font-family: monospace;
+    color: #d4d4d4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+#editor {
+    height: 100%;
+    width: 100%;
+    /* border-radius: 8px; */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+}
+
+.ace_content {
+    font-family: monospace;
+    position: absolute;
+    box-sizing: border-box;
+    min-width: 100%;
+    contain: style size layout;
+    font-variant-ligatures: no-common-ligatures;
+    background-color: rgb(32, 32, 32);
+    height: 100% !important;
+}
+
+.ace_gutter-layer {
+    background-color: rgb(32, 32, 32);
+}
+
+/* -----------------------TEMP-------------------- */
+
+/* Gradient border effect */
+.main-top-axis::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+            #41E6D0,
+            #7F54C9,
+            #F34BA3);
+    z-index: -1;
+    margin: -2px;
+    border-radius: 16px;
+}
+
+.main-top-axis::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #1A1A1A;
+    z-index: -1;
+    border-radius: 16px;
+}
+
+
+/* ------------ */
+/* Switch styling */
+.ui-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.ui-switch input {
+    display: none;
+}
+
+.slider {
+    position: relative;
+    cursor: pointer;
+    background: #2B2B2B;
+    border-radius: 25px;
+    height: 25px;
+    transition: 0.4s;
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: white;
+    transition: 0.4s;
+}
+
+input:checked+.slider {
+    background: linear-gradient(90deg, #41E6D0, #7F54C9);
+}
+
+input:checked+.slider::before {
+    transform: translateX(25px);
+}
+
+.slider .circle {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.4s;
+}
+
+input:checked+.slider .circle {
+    transform: translateX(25px);
+}
+
+/* Optional hover effect for the entire navbar */
+.main-top-axis:hover::before {
+    opacity: 0.8;
+    filter: blur(0.5px);
+}
+
+/* ----------------------Output----------------------- */
+.output {
+    background-color: rgb(32, 32, 32);
+    z-index: 5;
+    height: 33.3rem;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    color: white; /* Set text color to white */
+}
+
+.output-head {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 7px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    /* border-bottom-left-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.2px);
+    -webkit-backdrop-filter: blur(5.2px);
+    border: 1px solid rgba(43, 43, 43, 0.83);
+    /* color: white; */
+    /* background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent; */
+    background-color: rgb(32, 32, 32);
+}
+
+.output-head h3 {
+    background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-right: 20rem;
+}
+
+.input-head h3 {
+    background: linear-gradient(45deg, #ffa07a, #ff69b4, #7b68ee, #40e0d0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-right: 10rem;
+}
+
+
+/* ---------------------------------------------------------------- */
+/* Target Ace Editor's scrollbar */
+.ace_scrollbar.ace_scrollbar-v {
+    width: 8px !important;
+    background-color: transparent !important;
+}
+
+.ace_scrollbar::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+.ace_scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.2) !important;
+    border-radius: 4px !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.ace_scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(156, 163, 175, 0.4) !important;
+}
+
+.ace_scrollbar::-webkit-scrollbar-track {
+    background-color: transparent !important;
+}
+
+/* Handle Firefox */
+.ace_scrollbar {
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(156, 163, 175, 0.2) transparent !important;
+}
+
+/* Optional: Style the inner div if needed */
+.ace_scrollbar-inner {
+    width: 8px !important;
+    background-color: transparent !important;
+}
+
+/* Remove default Ace Editor scrollbar styling */
+.ace_scrollbar-v .ace_scrollbar-inner {
+    width: 8px !important;
+}
+
+.ace_scroller {
+    width: 100%;
+}
+
+#editor {
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.user-p {
+    font-size: 1.2rem;
+    color: white;
+    margin-left: 3.5rem;
+}
+
+/* Common button styles */
+.input-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.2rem;
+}
+
+.input-head h3 {
+    margin-right: auto;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #41E6D0, #7F54C9, #F34BA3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bolder;
+}
+
+/* Button container styles */
+.file, .cpy, .save {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+/* Icon styles */
+.file i, .cpy i, .save i {
+    font-size: 1.2rem;
+    color: #c0bcbc;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+/* Hover effects */
+.file:hover, .cpy:hover, .save:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.file:hover i, .cpy:hover i, .save:hover i {
+    color: white;
+}
+
+/* Individual button gradient effects */
+.file::before, .cpy::before, .save::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #41E6D0, #7F54C9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.file:hover::before {
+    opacity: 0.15;
+}
+
+.cpy::before {
+    background: linear-gradient(45deg, #7F54C9, #F34BA3);
+}
+
+.cpy:hover::before {
+    opacity: 0.15;
+}
+
+.save::before {
+    background: linear-gradient(45deg, #F34BA3, #41E6D0);
+}
+
+.save:hover::before {
+    opacity: 0.15;
+}
+
+/* Active state */
+.file:active, .cpy:active, .save:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip styles */
+.file, .cpy, .save {
+    position: relative;
+}
+
+.file::after, .cpy::after, .save::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.file:hover::after, .cpy:hover::after, .save:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: -35px;
+}
+
+/* Success animation for copy and save actions */
+@keyframes success-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.success {
+    animation: success-pulse 0.3s ease-in-out;
+}
+
+/* Main content container */
+.main-content {
+    display: flex;
+    height: 37rem;
+    width: 100%;
+    gap: 1rem;
+}
+
+/* Language sidebar styling */
+
+
+/* Main content container */
+.main-content {
+    display: flex;
+    height: 37rem;
+    width: 100%;
+    gap: 1rem;
+}
+
+/* Language sidebar styling */
+.first {
+    height: 100%;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 1rem;
+    background: rgba(30, 30, 30, 0.95);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Common icon styles */
+.first i, .first .icon {
+    color: white;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0);
+}
+
+/* Individual icon colors and hover effects */
+/* Python */
+.fa-python {
+    background: linear-gradient(135deg, #4B8BBE, #FFE873);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.fa-python:hover {
+    text-shadow: 0 0 20px rgba(75, 139, 190, 0.6);
+    transform: translateY(-3px);
+    background: rgba(75, 139, 190, 0.1);
+    border-color: rgba(75, 139, 190, 0.3);
+}
+
+/* Java */
+.fa-java {
+    background: linear-gradient(135deg, #f89820, #5382a1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.fa-java:hover {
+    text-shadow: 0 0 20px rgba(248, 152, 32, 0.6);
+    transform: translateY(-3px);
+    background: rgba(248, 152, 32, 0.1);
+    border-color: rgba(248, 152, 32, 0.3);
+}
+
+/* C++ */
+.icon.cpp {
+    background: linear-gradient(135deg, #00599C, #004482);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.icon.cpp:hover {
+    text-shadow: 0 0 20px rgba(0, 89, 156, 0.6);
+    transform: translateY(-3px);
+    background: rgba(0, 89, 156, 0.1);
+    border-color: rgba(0, 89, 156, 0.3);
+}
+
+/* C */
+.fa-c {
+    background: linear-gradient(135deg, #5C6BC0, #3949AB);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.fa-c:hover {
+    text-shadow: 0 0 20px rgba(92, 107, 192, 0.6);
+    transform: translateY(-3px);
+    background: rgba(92, 107, 192, 0.1);
+    border-color: rgba(92, 107, 192, 0.3);
+}
+
+/* Active state for icons */
+.first i.active, .first .icon.active {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip styles */
+.first i::after, .first .icon::after {
+    content: attr(data-language);
+    position: absolute;
+    left: 120%;
+    top: 50%;
+    transform: translateY(-50%);
+    /* background: rgba(0, 0, 0, 0.8); */
+    background: rgb(119 110 110 / 80%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.first i:hover::after, .first .icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+    left: 130%;
+}
+
+/* Selection indicator */
+.first i::before, .first .icon::before {
+    /* content: '';
+    position: absolute; */
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to bottom, #41E6D0, #7F54C9);
+    border-radius: 3px;
+    transition: height 0.3s ease;
+    padding: 3px;
+    color: white;
+    animation: rotateColors 3s linear infinite;
+}
+.first i:hover::before, .first .icon:hover::before,
+.first i.active::before, .first .icon.active::before {
+  height: 24px;
+}
+
+/* Keyframes to rotate colors between green, blue, and pink */
+@keyframes rotateColors {
+  0% {
+    background: linear-gradient(to bottom, #41E6D0, #7F54C9);
+  }
+  33% {
+    background: linear-gradient(to bottom, #7F54C9, #41E6D0);
+  }
+  66% {
+    background: linear-gradient(to bottom, #d62c84, #41E6D0);
+  }
+  100% {
+    background: linear-gradient(to bottom, #41E6D0, #7F54C9);
+  }
+}
+
+/* Hover animation */
+@keyframes iconFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.first i:hover, .first .icon:hover {
+    animation: iconFloat 1s ease infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .first {
+        width: 60px;
+        padding: 1rem 0.5rem;
+    }
+
+    .first i, .first .icon {
+        color: white;
+        font-size: 2rem;
+        padding: 0.75rem;
+    }
+}
+.main-content, .output,.first {
+    transition: height 0.5s ease; /* Smooth transition for height */
+}
+/* ---------------------------Full-Screen--------------------------- */
+@media all and (display-mode: fullscreen) {
+    .main-content {
+        height: 45rem;
+    }
+    .output{
+        height: 41.3rem;
+    }
+    .first{
+        height: 100%;
+    }
+
+  }
