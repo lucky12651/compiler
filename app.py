@@ -1,14 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 import subprocess
-from flask_socketio import SocketIO, join_room, leave_room, emit, os
-
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.urandom(5)
-socketio = SocketIO(app)
 
-# A set to store active users
-active_users = set()
+
+
 
 @app.route('/')
 def index():
@@ -48,57 +44,53 @@ def compile_and_execute(code, input_data):
 
     return output.decode('utf-8')
 
-@app.route('/c')
-def c():
-    return render_template('c.html')
 
 
-@app.route('/runc', methods=['POST'])
-def run_c_code():
+@app.route('/java')
+def java():
+    return render_template('index.html')
+
+@app.route('/runjava', methods=['POST'])
+def run_java_code():
     code = request.json.get('code', '')
     input_data = request.json.get('input', None)
 
     try:
-        output = compile_and_execute_c(code, input_data)
+        output = compile_and_execute_java(code, input_data)
         return jsonify({'output': output})
     except Exception as e:
         return jsonify({'error': str(e)})
 
-def compile_and_execute_c(code, input_data):
-    language = 'gcc'
-    extension = 'c'
-    compiled_file_path = '/tmp/temp_code'
+def compile_and_execute_java(code, input_data):
+    temp_file_path = '/tmp/temp_code.java'
 
-    with open(f'{compiled_file_path}.{extension}', 'w') as temp_file:
+    with open(temp_file_path, 'w') as temp_file:
         temp_file.write(code)
 
-    command_compile = f'{language} {compiled_file_path}.{extension} -o {compiled_file_path}'
+    compiled_file_path = '/tmp'
+
+    command_compile = f'javac {temp_file_path} -d {compiled_file_path}'
     process_compile = subprocess.Popen(command_compile, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     _, error_compile = process_compile.communicate()
 
     if error_compile:
-        raise Exception(f"Code compilation error: {error_compile.decode('utf-8')}")
+        raise Exception(f"Java code compilation error: {error_compile.decode('utf-8')}")
 
-    if input_data:
-        input_file_path = '/tmp/input_data.txt'
-        with open(input_file_path, 'w') as input_file:
-            input_file.write(input_data)
-
-        command_execute = f'{compiled_file_path} < {input_file_path}'
-    else:
-        command_execute = compiled_file_path
+    class_name = code.split("class")[1].split("{")[0].strip()
+    command_execute = f'java -classpath {compiled_file_path} {class_name}'
 
     process_execute = subprocess.Popen(command_execute, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     output, error_execute = process_execute.communicate()
 
     if error_execute:
-        raise Exception(f"An error occurred during code execution: {error_execute.decode('utf-8')}")
+        raise Exception(f"An error occurred during Java code execution: {error_execute.decode('utf-8')}")
 
     return output.decode('utf-8')
 
+
 @app.route('/cpp')
 def cpp():
-    return render_template('cpp.html')
+    return render_template('index.html')
 
 
 @app.route('/runcpp', methods=['POST'])
@@ -145,83 +137,57 @@ def compile_and_execute_cpp(code, input_data):
     return output.decode('utf-8')
 
 
-@app.route('/java')
-def java():
-    return render_template('java.html')
 
-@app.route('/runjava', methods=['POST'])
-def run_java_code():
+
+
+@app.route('/c')
+def c():
+    return render_template('c.html')
+
+
+@app.route('/runc', methods=['POST'])
+def run_c_code():
     code = request.json.get('code', '')
     input_data = request.json.get('input', None)
 
     try:
-        output = compile_and_execute_java(code, input_data)
+        output = compile_and_execute_c(code, input_data)
         return jsonify({'output': output})
     except Exception as e:
         return jsonify({'error': str(e)})
+def compile_and_execute_c(code, input_data):
+    language = 'gcc'
+    extension = 'c'
+    compiled_file_path = '/tmp/temp_code'
 
-def compile_and_execute_java(code, input_data):
-    temp_file_path = '/tmp/temp_code.java'
-
-    with open(temp_file_path, 'w') as temp_file:
+    with open(f'{compiled_file_path}.{extension}', 'w') as temp_file:
         temp_file.write(code)
-
-    compiled_file_path = '/tmp'
-
-    command_compile = f'javac {temp_file_path} -d {compiled_file_path}'
+    command_compile = f'{language} {compiled_file_path}.{extension} -o {compiled_file_path}'
     process_compile = subprocess.Popen(command_compile, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     _, error_compile = process_compile.communicate()
 
     if error_compile:
-        raise Exception(f"Java code compilation error: {error_compile.decode('utf-8')}")
+        raise Exception(f"Code compilation error: {error_compile.decode('utf-8')}")
 
-    class_name = code.split("class")[1].split("{")[0].strip()
-    command_execute = f'java -classpath {compiled_file_path} {class_name}'
+    if input_data:
+        input_file_path = '/tmp/input_data.txt'
+        with open(input_file_path, 'w') as input_file:
+            input_file.write(input_data)
+        command_execute = f'{compiled_file_path} < {input_file_path}'
+    else:
+        command_execute = compiled_file_path
 
     process_execute = subprocess.Popen(command_execute, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     output, error_execute = process_execute.communicate()
 
     if error_execute:
-        raise Exception(f"An error occurred during Java code execution: {error_execute.decode('utf-8')}")
+        raise Exception(f"An error occurred during code execution: {error_execute.decode('utf-8')}")
 
     return output.decode('utf-8')
 
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
-@app.route('/admin')
-def admin():
-    return render_template('admin.html')
 
 
-@socketio.on('connect')
-def on_connect():
-    # Add the current user's ID to the active_users set
-    active_users.add(request.sid)
-    emit('update_users', list(active_users), broadcast=True)
-
-@socketio.on('disconnect')
-def on_disconnect():
-    # Remove the current user's ID from the active_users set
-    active_users.discard(request.sid)
-    emit('update_users', list(active_users), broadcast=True)
-
-
-
-
-
-
-
-@app.route('/signup')
-def signup():
-    return render_template('signup.html')
-@app.route('/restricted')
-def restricted():
-    return render_template('restricted.html')
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template('404.html'), 404
 
 # Add more routes and view functions for other HTML pages as needed
 
